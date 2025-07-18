@@ -10,64 +10,110 @@
         integrity="sha512-f6bQMg6nkSRw/xfHw5BCbISe/dJjXrVGfz9BSDwhZtiErHwk7ifbmBEtF9vFW8UNIQPhV2uEFVyI/UHob9r7Cw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<script>
-    window.addEventListener('DOMContentLoaded', () => {
-
-        gsap.from("#home", {
-            opacity: 0,
-            y: 50,
-            duration: 1,
-            stagger: 0.3,
-            ease: "power2.out"
-        });
-
-        gsap.from(".gallery-item", {
-            opacity: 0,
-            y: 50,
-            rotation: 5,
-            duration: 1,
-            stagger: 0.2,
-            ease: "power2.out"
-        });
-
-        function handleScrollAnimation() {
-            const images = document.querySelectorAll('.scroll-animate');
-            images.forEach(img => {
-                const rect = img.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 50) {
-                    img.classList.add('visible');
-                }
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            gsap.from("#home", {
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                stagger: 0.3,
+                ease: "power2.out"
             });
-        }
 
-        window.addEventListener('scroll', handleScrollAnimation);
-        handleScrollAnimation(); // run on load
+            gsap.from(".gallery-item", {
+                opacity: 0,
+                y: 50,
+                rotation: 5,
+                duration: 1,
+                stagger: 0.2,
+                ease: "power2.out"
+            });
 
-        // Modal functionality
-        const modal = document.getElementById("imageModal");
-        const modalImg = document.getElementById("modalImage");
-        const closeBtn = document.querySelector(".modal .close");
+            function handleScrollAnimation() {
+                const images = document.querySelectorAll('.scroll-animate');
+                images.forEach(img => {
+                    const rect = img.getBoundingClientRect();
+                    if (rect.top < window.innerHeight - 50) {
+                        img.classList.add('visible');
+                    }
+                });
+            }
 
-        document.querySelectorAll('.gallery-item img').forEach(img => {
-            img.addEventListener('click', () => {
+            window.addEventListener('scroll', handleScrollAnimation);
+            handleScrollAnimation();
+
+            // Modal functionality
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImage");
+            const closeBtn = document.querySelector(".modal .close");
+            const modalControls = document.querySelector('.modal-controls');
+
+            function openModal(img) {
                 modal.style.display = "flex";
+                modal.classList.add('show');
                 modalImg.src = img.src;
                 modalImg.alt = img.alt;
+                modalControls.style.display = 'flex';
+            }
+
+            function closeModal() {
+                modal.style.display = "none";
+                modalControls.style.display = 'none';
+            }
+
+            document.querySelectorAll('.gallery-item img').forEach(img => {
+                img.addEventListener('click', () => openModal(img));
+            });
+
+            closeBtn.addEventListener('click', closeModal);
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+
+            let currentIndex = 0;
+            const images = Array.from(document.querySelectorAll('.gallery-item img'));
+
+            function showImage(index) {
+                if (index >= 0 && index < images.length) {
+                    currentIndex = index;
+                    modalImg.src = images[currentIndex].src;
+                    modalImg.alt = images[currentIndex].alt;
+                }
+            }
+
+            images.forEach((img, index) => {
+                img.addEventListener('click', () => {
+                    showImage(index);
+                    openModal(img);
+                });
+            });
+
+            document.getElementById('prevBtn').addEventListener('click', () => {
+                showImage((currentIndex - 1 + images.length) % images.length);
+            });
+
+            document.getElementById('nextBtn').addEventListener('click', () => {
+                showImage((currentIndex + 1) % images.length);
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (modal.style.display === "flex") {
+                    if (e.key === 'ArrowLeft') {
+                        showImage((currentIndex - 1 + images.length) % images.length);
+                    } else if (e.key === 'ArrowRight') {
+                        showImage((currentIndex + 1) % images.length);
+                    } else if (e.key === 'Escape') {
+                        closeModal();
+                    }
+                }
             });
         });
 
-        closeBtn.addEventListener('click', () => {
-            modal.style.display = "none";
-        });
 
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.style.display = "none";
-            }
-        });
-
-    });
-</script>
+    </script>
     <style>
         /* Adding geometric cube background for the entire webpage */
         .home {
@@ -226,26 +272,32 @@
         }
 
         .gallery {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            padding: 0;
+            column-count: 2;
+            column-gap: 10px;
+            padding: 0 10px;
         }
 
         .gallery-item {
+            display: inline-block;
             width: 100%;
-            height: 100%;
-            overflow: hidden;
+            margin-bottom: 10px;
         }
 
         .gallery-item img {
             width: 100%;
-            height: 100%;
+            height: auto;
             object-fit: cover;
-            display: block;
-            transition: transform 0.5s ease, opacity 0.5s ease;
             border-radius: 10px;
+            transition: transform 0.5s ease, opacity 0.5s ease;
         }
+
+        @media (max-width: 768px) {
+            .gallery {
+                column-count: 1;
+            }
+        }
+
+
 
         /* Scroll Animation */
         .gallery-item img.scroll-animate {
@@ -300,10 +352,7 @@
                 padding: 60px 5%;
             }
 
-            .gallery {
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-                padding: 30px 5%;
-            }
+
 
             #contact-us {
                 padding: 60px 5%;
@@ -333,10 +382,6 @@
             .btn {
                 padding: 8px 16px;
                 font-size: 0.85rem;
-            }
-
-            .gallery {
-                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
             }
 
             .contact-icons img {
@@ -438,35 +483,102 @@
             display: none;
             position: fixed;
             z-index: 2000;
-            left: 0;
             top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            backdrop-filter: blur(10px);
-            background: rgba(255, 215, 0, 0.2);
-            /* Golden blur */
+            background: rgba(218, 165, 32, 0.25);
+            /* Golden shade with transparency */
+            backdrop-filter: blur(20px);
             justify-content: center;
             align-items: center;
+            animation: fadeIn 0.4s ease;
         }
 
         .modal-content {
-            max-width: 80%;
-            max-height: 80%;
-            border: 5px solid var(--highlight-color);
-            border-radius: 10px;
-            box-shadow: 0 0 15px gold;
+            max-width: 90%;
+            max-height: 90%;
+            border: 2px solid var(--highlight-color);
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            background: rgba(255, 215, 0, 0.15);
+            /* subtle inner golden tint */
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            transform: scale(0.9);
+            opacity: 0;
+        }
+
+        .modal.show .modal-content {
+            transform: scale(1);
+            opacity: 1;
         }
 
         .modal .close {
             position: absolute;
-            top: 20px;
-            right: 30px;
+            top: 15px;
+            right: 20px;
+            font-size: 1.2rem;
+            /* Smaller font size */
             color: #fff;
-            font-size: 2rem;
-            cursor: pointer;
             background: var(--accent-color);
-            padding: 5px 10px;
-            border-radius: 5px;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            /* Perfect circle */
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .modal .close:hover {
+            background: var(--highlight-color);
+            transform: rotate(90deg) scale(1.1);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: #fff;
+            background: var(--accent-color);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            transition: background 0.3s, transform 0.3s;
+            z-index: 1001;
+            /* Ensure on top */
+        }
+
+        .nav-arrow:hover {
+            background: var(--highlight-color);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .nav-arrow.prev {
+            left: 30px;
+        }
+
+        .nav-arrow.next {
+            right: 30px;
         }
     </style>
 </head>
@@ -574,8 +686,13 @@
 
     <div id="imageModal" class="modal">
         <span class="close">&times;</span>
+        <span class="nav-arrow prev" id="prevBtn">&#10094;</span> <!-- ‹ Prev Arrow -->
         <img class="modal-content" id="modalImage" />
+        <span class="nav-arrow next" id="nextBtn">&#10095;</span> <!-- › Next Arrow -->
     </div>
+
+
+
 
 
 
