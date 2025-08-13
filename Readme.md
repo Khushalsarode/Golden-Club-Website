@@ -68,7 +68,7 @@ project/
 1. **Clone the repository** or download the source code.
    ```bash
    git clone https://github.com/yourusername/golden-cube.git
-````
+```
 
 2. **Open `index.html`** in your preferred browser.
 
