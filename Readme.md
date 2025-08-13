@@ -66,8 +66,9 @@ project/
 ## 🛠️ Setup Instructions
 
 1. **Clone the repository** or download the source code.
-   ```git clone https://github.com/yourusername/golden-cube.git 
-   ```
+    ```bash
+    git clone https://github.com/yourusername/golden-cube.git
+    ```
 
 2. **Open `index.html`** in your preferred browser.
 
