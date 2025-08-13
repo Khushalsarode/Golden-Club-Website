@@ -66,9 +66,8 @@ project/
 ## 🛠️ Setup Instructions
 
 1. **Clone the repository** or download the source code.
-   ```bash
-   git clone https://github.com/yourusername/golden-cube.git
-```
+   ```git clone https://github.com/yourusername/golden-cube.git 
+   ```
 
 2. **Open `index.html`** in your preferred browser.
 
@@ -81,16 +80,15 @@ project/
 ---
 
 ## ✨ Customization Tips
-
-* **Logo**: Replace the demo logo in the header section with your own:
+**Logo**: Replace the demo logo in the header section with your own:
 
   ```html
   <img src="./assets/logo.png" alt="Golden Cube Logo" class="logo-img">
   ```
 
-* **Social Media Links**: Update the `<a>` tags in the contact section to point to your real profiles.
+**Social Media Links**: Update the `<a>` tags in the contact section to point to your real profiles.
 
-* **Image Modal Logic**: JS is already set up to allow forward/back navigation and a close button.
+**Image Modal Logic**: JS is already set up to allow forward/back navigation and a close button.
 
 ---
 
