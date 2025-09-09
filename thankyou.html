@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GOLDEN CUBE — Interior Studio</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="golden_cube_actual.png" rel="icon" type="image/png" />
+  <style>
+    :root {
+      --gold: #f4d03f;
+      --bg-dark: #111;
+      --text-light: #eee;
+      --text-muted: rgba(255,255,255,0.75);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Manrope', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+      color: var(--text-light);
+    }
+
+    /* Background Crossfade */
+    .bg-slideshow {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+    }
+
+    .bg-slideshow div {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      animation: crossfade 40s infinite;
+      filter: brightness(0.6) contrast(1.1);
+    }
+
+    .bg-slideshow div:nth-child(1) {
+      background-image: url('https://images.unsplash.com/photo-1756199638047-6d6930280e37?w=1600&auto=format&fit=crop');
+      animation-delay: 0s;
+    }
+    .bg-slideshow div:nth-child(2) {
+      background-image: url('https://images.unsplash.com/photo-1751945965597-71171ec7a458?w=1600&auto=format&fit=crop');
+      animation-delay: 8s;
+    }
+    .bg-slideshow div:nth-child(3) {
+      background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2400&auto=format&fit=crop');
+      animation-delay: 16s;
+    }
+    .bg-slideshow div:nth-child(4) {
+      background-image: url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=2400&auto=format&fit=crop');
+      animation-delay: 24s;
+    }
+    .bg-slideshow div:nth-child(5) {
+      background-image: url('https://plus.unsplash.com/premium_photo-1661962740501-2214f25437a1?w=1600&auto=format&fit=crop');
+      animation-delay: 32s;
+    }
+
+    @keyframes crossfade {
+      0%   { opacity: 0; }
+      5%   { opacity: 1; }
+      25%  { opacity: 1; }
+      30%  { opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+    /* Overlay */
+    body::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: -1;
+    }
+
+    .thankyou-container {
+      max-width: 620px;
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(12px);
+      padding: 50px 35px;
+      border-radius: 20px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .thankyou-logo {
+      width: 120px;
+      margin-bottom: 20px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.6));
+      transition: transform 0.4s ease;
+      border-radius: 12px;
+    }
+
+    .thankyou-logo:hover {
+      transform: scale(1.08);
+    }
+
+    h1 {
+      font-size: clamp(32px,6vw,58px);
+      color: var(--gold);
+      margin-bottom: 18px;
+      letter-spacing: 1px;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    p {
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      margin-bottom: 28px;
+      line-height: 1.6;
+      animation: fadeInUp 1s ease forwards;
+      animation-delay: 0.2s;
+    }
+
+    a.btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 14px 34px;
+      background: var(--gold);
+      color: var(--bg-dark);
+      font-weight: 700;
+      border-radius: 10px;
+      transition: background 0.3s ease, transform 0.3s ease;
+      animation: fadeInUp 1s ease forwards;
+      animation-delay: 0.4s;
+    }
+
+    a.btn:hover {
+      background: #d4b037;
+      transform: scale(1.05);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media(max-width:640px) {
+      .thankyou-container {
+        padding: 35px 20px;
+      }
+      h1 { font-size: clamp(28px,8vw,46px); }
+      p { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Background slideshow -->
+  <div class="bg-slideshow">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <div class="thankyou-container">
+    <img src="./golden_cube_actual.png" alt="Golden Cube Logo" class="thankyou-logo" />
+    <h1>Thank You!</h1>
+    <p>Your message has been received. Our team at Golden Cube will reach out to you shortly.  
+    We appreciate your interest in our luxury interior design services.</p>
+    <a href="index_newdesign.html" class="btn">← Back to Home</a>
+  </div>
+</body>
+</html>

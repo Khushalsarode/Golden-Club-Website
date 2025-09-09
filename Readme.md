@@ -1,95 +1,134 @@
-# 🌟 Golden Cube – Design Studio Website
-
-Golden Cube is a premium design studio website that showcases luxurious and innovative interior, architectural, and digital design services. Built with elegant visuals, smooth transitions, and a golden-themed aesthetic, the site aims to impress and engage high-end clientele.
 
 ---
 
-## 📸 Demo Screenshots
+# Golden Cube — Interior Studio
 
-### 🖼️ Image Gallery – Full Grid Layout
-![New Layout](./Screenshot/new_full_grid_arrangement_as_asked.jpg)
-
-### ✨ Overlay Modal with Golden Blur Background
-![Overlay Modal](./Screenshot/work_img_with_over_modal_wth_bg_golden_effect_blur.jpg)
+**Website:** `https://sample-website-url.com` (replace with your live URL)(I have not deployed Website from my end)
+**Logo:** ![Golden Cube Logo](./golden_cube_actual.png)
 
 ---
 
-## 🚀 Features
+## Overview
 
-- 🎨 **Modern Hero Section** with animated text and call-to-action buttons.
-- 🖼️ **Interactive Image Gallery** with smooth scroll-in animations and modal viewer.
-- 🌐 **Fully Responsive Layout** – optimized for mobile, tablet, and desktop.
-- 💬 **Integrated Chatbot** with scrollable chat window and easy deployment.
-- 📦 **Modular Components**: Well-structured and reusable HTML/CSS/JS.
-- 🏗️ **Sections Included**:
-  - Home
-  - Introduction
-  - About (Projects)
-  - Gallery
-  - Services
-  - Testimonials
-  - Contact
-  - Footer
+**Golden Cube** is a luxury interior design studio focused on creating timeless and elegant living spaces. Our website presents our design philosophy, portfolio, services, and ways for clients to get in touch.
+
+The website emphasizes:
+
+* Luxury and elegance with a modern aesthetic.
+* Clear, visually engaging presentation of services and portfolio.
+* Interactive and responsive user experience.
+* Easy access to contact via WhatsApp, Gmail, or phone.
 
 ---
 
-## 🔧 Tech Stack
+## Features
 
-- **HTML5**
-- **CSS3**
-- **JavaScript**
-- **Boxicons** – for modern icons
-- **Particles.js** – animated background effect
-- **Scroll animations** – fade-in and slide effects
-- **Custom modal system** – for image previews
-- **Chatbot integration** – using simple HTML/CSS/JS
+### Hero Section
+
+* Full-screen background slider with high-resolution images.
+* Animated entrance for logo, heading, subheading, and call-to-action buttons.
+* Luxury design theme with gold accents and text shadows.
+
+### About Section
+
+* Informative description of the studio, mission, and design philosophy.
+* Alternating grid layout with images and text.
+* Smooth fade-in animations for visual engagement.
+
+### Services Section
+
+* Grid layout showcasing all services.
+* Animated cards with hover effects for luxury feel.
+* Icons representing each service for quick recognition.
+
+### Portfolio/Gallery
+
+* Responsive grid layout for project images.
+* Hover effects with scaling and lightbox for detailed view.
+* Works well on desktop and mobile devices.
+
+### Testimonials
+
+* Horizontally scrollable testimonial cards.
+* Fade-in animations for dynamic engagement.
+* Responsive layout ensures readability on all screen sizes.
+
+### Contact
+
+* Easy-to-use contact form styled for clarity.
+* Direct links for WhatsApp, Gmail, and phone calls.
+* Provides multiple options for reaching the studio.
+
+### Navigation
+
+* Responsive navigation bar with hamburger menu for mobile.
+* Smooth scrolling to sections.
+* Social icons with hover effects and accessible labels.
+
+### Back to Top Button
+
+* Floating button for quick scroll-to-top functionality.
+* Subtle animation and hover effect for interaction.
+
+### Footer
+
+* Minimalist footer with brand name and contact links.
+* Hover effects for interactive engagement.
 
 ---
 
-## 📁 Folder Structure
+## Technologies Used
+
+* **HTML5** — Semantic structure of the website.
+* **CSS3** — Styling, layout, animations, and responsive design.
+* **Google Fonts** — `Manrope` for body text, `Luxia` for headings.
+* **Custom Fonts** — `Metropolis` and `Luxia` for typography.
+* **Responsive Design** — Mobile-first layout with media queries.
+* **SVG Icons** — Scalable and interactive icons for social links and services.
+
+---
+
+## Installation / Deployment
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/khushalsarode/golden-cube-website.git
+   ```
+
+2. **Navigate to the project folder:**
+
+   ```bash
+   cd golden-cube-website
+   ```
+
+3. **Open `index.html` in your browser** or deploy using any static site hosting service Like:
+
+   * [GitHub Pages](https://pages.github.com/)
+   * [Netlify](https://www.netlify.com/)
+   * [Vercel](https://vercel.com/)
+
+---
+
+## Folder Structure
 
 ```
-
-project/
+golden-cube-website/
 │
-├── golden\_cube\_gallery/         # All project images
-├── screenshots/                 # Preview screenshots
-├── index.html                   # Main website file
-├── style.css                    # Custom styles
-├── script.js                    # Interactivity and animations
-└── README.md                    # Project documentation
-
-````
+├── index.html          # Main website HTML file
+├── golden_cube_actual.png # Logo
+├── fonts/              # Custom font files
+├── css/ (optional)     # If separated from inline styles
+└── golden_club_gallery/             # Project/gallery images
+```
 
 ---
 
-## 🛠️ Setup Instructions
+## Notes
 
-1. **Clone the repository** or download the source code.
-    ```bash
-    git clone https://github.com/yourusername/golden-cube.git
-    ```
-
-2. **Open `index.html`** in your preferred browser.
-
-3. **Ensure the folder structure is intact**, especially for:
-
-   * `/golden_cube_gallery/` → images
-   * `/screenshots/` → preview images (for README/demo)
-
+* Designed for modern browsers (Chrome, Firefox, Edge, Safari).
+* Fully responsive for desktop, tablet, and mobile.
+* Smooth animations and interactive hover effects for better UX.
+* All icons and fonts are optimized for web performance.
 
 ---
-
-## ✨ Customization Tips
-**Logo**: Replace the demo logo in the header section with your own:
-
-  ```html
-  <img src="./assets/logo.png" alt="Golden Cube Logo" class="logo-img">
-  ```
-
-**Social Media Links**: Update the `<a>` tags in the contact section to point to your real profiles.
-
-**Image Modal Logic**: JS is already set up to allow forward/back navigation and a close button.
-
----
-
