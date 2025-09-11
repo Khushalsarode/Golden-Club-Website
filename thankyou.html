@@ -8,160 +8,181 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link href="golden_cube_actual.png" rel="icon" type="image/png" />
   <style>
-    :root {
-      --gold: #f4d03f;
-      --bg-dark: #111;
-      --text-light: #eee;
-      --text-muted: rgba(255,255,255,0.75);
-    }
+:root {
+  --gold: #ffb52e;
+  --bg-dark: #111;
+  --text-light: #ffffff;
+  --text-muted: rgba(255,255,255,0.75);
+}
 
-    body {
-      margin: 0;
-      font-family: 'Manrope', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      text-align: center;
-      overflow: hidden;
-      position: relative;
-      color: var(--text-light);
-    }
+@font-face {
+  font-family: 'Metropolis';
+  src: url('./fonts/Metropolis-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Luxia';
+  src: url('./fonts/Luxia-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
 
-    /* Background Crossfade */
-    .bg-slideshow {
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-    }
 
-    .bg-slideshow div {
-      position: absolute;
-      inset: 0;
-      background-size: cover;
-      background-position: center;
-      opacity: 0;
-      animation: crossfade 40s infinite;
-      filter: brightness(0.6) contrast(1.1);
-    }
+body {
+  margin: 0;
+  font-family: 'Metropolis', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  color: var(--text-light);
+}
 
-    .bg-slideshow div:nth-child(1) {
-      background-image: url('https://images.unsplash.com/photo-1756199638047-6d6930280e37?w=1600&auto=format&fit=crop');
-      animation-delay: 0s;
-    }
-    .bg-slideshow div:nth-child(2) {
-      background-image: url('https://images.unsplash.com/photo-1751945965597-71171ec7a458?w=1600&auto=format&fit=crop');
-      animation-delay: 8s;
-    }
-    .bg-slideshow div:nth-child(3) {
-      background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2400&auto=format&fit=crop');
-      animation-delay: 16s;
-    }
-    .bg-slideshow div:nth-child(4) {
-      background-image: url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=2400&auto=format&fit=crop');
-      animation-delay: 24s;
-    }
-    .bg-slideshow div:nth-child(5) {
-      background-image: url('https://plus.unsplash.com/premium_photo-1661962740501-2214f25437a1?w=1600&auto=format&fit=crop');
-      animation-delay: 32s;
-    }
+/* Background Crossfade */
+.bg-slideshow {
+  position: fixed;
+  inset: 0;             /* top:0; right:0; bottom:0; left:0; */
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  overflow: hidden;
+}
 
-    @keyframes crossfade {
-      0%   { opacity: 0; }
-      5%   { opacity: 1; }
-      25%  { opacity: 1; }
-      30%  { opacity: 0; }
-      100% { opacity: 0; }
-    }
+.bg-slideshow div {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;        /* make the image cover entire viewport */
+  background-position: center;   /* center the image */
+  background-repeat: no-repeat;  /* prevent tiling */
+  opacity: 0;
+  animation: crossfade 40s infinite;
+  filter: brightness(0.6) contrast(1.1);
+}
 
-    /* Overlay */
-    body::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.45);
-      z-index: -1;
-    }
+/* optional: smoother scaling on resize */
+.bg-slideshow div {
+  will-change: transform, opacity;
+}
 
-    .thankyou-container {
-      max-width: 620px;
-      background: rgba(255, 255, 255, 0.06);
-      backdrop-filter: blur(12px);
-      padding: 50px 35px;
-      border-radius: 20px;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.6);
-      animation: fadeIn 1s ease forwards;
-    }
+.bg-slideshow div:nth-child(1) { background-image: url('https://plus.unsplash.com/premium_photo-1723901831042-d99b9630a546?w=600&auto=format&fit=crop'); animation-delay: 0s; }
+.bg-slideshow div:nth-child(2) { background-image: url('https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=600&auto=format&fit=crop'); animation-delay: 8s; }
+.bg-slideshow div:nth-child(3) { background-image: url('https://images.unsplash.com/photo-1756199638047-6d6930280e37?w=600&auto=format&fit=crop'); animation-delay: 16s; }
+.bg-slideshow div:nth-child(4) { background-image: url('https://images.unsplash.com/photo-1756199617913-620d64edb8a4?w=600&auto=format&fit=crop'); animation-delay: 24s; }
+.bg-slideshow div:nth-child(5) { background-image: url('https://plus.unsplash.com/premium_photo-1723901831054-b0915918892c?w=600&auto=format&fit=crop'); animation-delay: 32s; }
 
-    .thankyou-logo {
-      width: 120px;
-      margin-bottom: 20px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.6));
-      transition: transform 0.4s ease;
-      border-radius: 12px;
-    }
+@keyframes crossfade {
+  0%   { opacity: 0; }
+  5%   { opacity: 1; }
+  25%  { opacity: 1; }
+  30%  { opacity: 0; }
+  100% { opacity: 0; }
+}
 
-    .thankyou-logo:hover {
-      transform: scale(1.08);
-    }
+/* Overlay */
+body::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: -1;
+}
 
-    h1 {
-      font-size: clamp(32px,6vw,58px);
-      color: var(--gold);
-      margin-bottom: 18px;
-      letter-spacing: 1px;
-      animation: fadeInUp 1s ease forwards;
-    }
+/* Thankyou Container */
+.thankyou-container {
+  max-width: 620px;
+  background: rgba(255, 255, 255, 0.06);
+  background: transparent;
+  padding: 50px 35px;
+  border-radius: 20px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+  animation: fadeIn 1s ease forwards;
+}
 
-    p {
-      color: var(--text-muted);
-      font-size: 1.15rem;
-      margin-bottom: 28px;
-      line-height: 1.6;
-      animation: fadeInUp 1s ease forwards;
-      animation-delay: 0.2s;
-    }
+/* Logo */
+.thankyou-logo {
+  width: 120px;
+  margin-bottom: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.6));
+  transition: transform 0.4s ease;
+  border-radius: 12px;
+}
+.thankyou-logo:hover {
+  transform: scale(1.08);
+}
 
-    a.btn {
-      display: inline-block;
-      text-decoration: none;
-      padding: 14px 34px;
-      background: var(--gold);
-      color: var(--bg-dark);
-      font-weight: 700;
-      border-radius: 10px;
-      transition: background 0.3s ease, transform 0.3s ease;
-      animation: fadeInUp 1s ease forwards;
-      animation-delay: 0.4s;
-    }
+/* Heading & Text */
+h1 {
+  font-family: 'Luxia', serif;
+  font-size: clamp(32px,6vw,58px);
+  color: var(--gold);
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+  animation: fadeInUp 1s ease forwards;
+}
+p {
+  color: var(--text-muted);
+  font-size: 1.15rem;
+  margin-bottom: 28px;
+  line-height: 1.6;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.2s;
+}
 
-    a.btn:hover {
-      background: #d4b037;
-      transform: scale(1.05);
-    }
+/* Button */
+a.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 14px 34px;
+  background: var(--gold);
+  color: var(--bg-dark);
+  font-weight: 700;
+  border-radius: 10px;
+  transition: background 0.3s ease, transform 0.3s ease;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.4s;
+}
+a.btn:hover {
+  background: #ffb52e;
+transform: scale(2.08);
+}
 
-    /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
 
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-    /* Responsive */
-    @media(max-width:640px) {
-      .thankyou-container {
-        padding: 35px 20px;
-      }
-      h1 { font-size: clamp(28px,8vw,46px); }
-      p { font-size: 1rem; }
-    }
+/* Responsive */
+@media(max-width:1024px) {
+  .thankyou-container { padding: 40px 28px; }
+  h1 { font-size: clamp(30px,5vw,52px); }
+  p { font-size: 1.1rem; }
+}
+@media(max-width:640px) {
+  .thankyou-container { padding: 35px 20px; }
+  h1 { font-size: clamp(28px,8vw,46px); }
+  p { font-size: 1rem; }
+}
+@media(max-width:480px) {
+  .thankyou-container { padding: 28px 15px; }
+  h1 { font-size: clamp(26px,10vw,40px); }
+  p { font-size: 0.95rem; }
+  a.btn { padding: 12px 28px; font-size: 0.95rem; }
+}
   </style>
 </head>
 <body>
@@ -175,7 +196,7 @@
   </div>
 
   <div class="thankyou-container">
-    <img src="./golden_cube_actual.png" alt="Golden Cube Logo" class="thankyou-logo" />
+    <img src="./logo/golden_cube_actual.png" alt="Golden Cube Logo" class="thankyou-logo" />
     <h1>Thank You!</h1>
     <p>Your message has been received. Our team at Golden Cube will reach out to you shortly.  
     We appreciate your interest in our luxury interior design services.</p>
