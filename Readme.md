@@ -4,7 +4,7 @@
 # Golden Cube — Interior Studio
 
 **Website:** `https://sample-website-url.com` (replace with your live URL)(I have not deployed Website from my end)
-**Logo:** ![Golden Cube Logo](./logo/golden_cube_actual.png)
+**Logo:** ![Golden Cube Logo](./logo/png%20transparent%20dark%20gold.png)
 
 ---
 
