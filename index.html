@@ -1671,7 +1671,7 @@ footer {
 
     <!-- Contact Form Only (Centered) -->
     <div class="contact-form-wrapper">
-      <form id="contactForm" action="https://formsubmit.co/goldencubestudio.in@gmail.com" method="POST" class="contact-form">
+      <form id="contactForm" action="https://formsubmit.co/goldencubestudioin@gmail.com" method="POST" class="contact-form">
         <h3>Leave your contact</h3>
         <p class="sub">and we will reach out to you</p>
 
@@ -1694,7 +1694,7 @@ footer {
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_subject" value="New Contact Form">
-        <input type="hidden" name="_next" value="https://44dc647f3e2c.ngrok-free.app/thankyou.html">
+        <input type="hidden" name="_next" value="thankyou.html">
 
 
         <button class="btn submit-btn" type="submit">Submit Request</button>
@@ -1911,51 +1911,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }, { threshold: 0.2 });
 
   cards.forEach(card => observer.observe(card));
-
-
-
-/* TESTIMONIAL SECTION SCRIPT FOR SAYING COROSOUL 
-document.addEventListener("DOMContentLoaded", () => {
-  const track = document.querySelector('.testimonials-track');
-  const testimonials = document.querySelectorAll('.testimonial');
-
-  // Clone testimonials enough times (at least 2x for seamless loop)
-  testimonials.forEach(t => {
-    const clone = t.cloneNode(true);
-    track.appendChild(clone);
-  });
-
-  // Fade-in animation on scroll
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-      }
-    });
-  }, { threshold: 0.2 });
-
-  testimonials.forEach(testimonial => observer.observe(testimonial));
-
-  // Continuous infinite ticker
-  let position = 0;
-  const speed = 0.7; // px per frame
-
-  function animate() {
-    position -= speed;
-    track.style.transform = `translateX(${position}px)`;
-
-    // When scrolled past original width, reset position seamlessly
-    if (Math.abs(position) >= track.scrollWidth / 2) {
-      position = 0; // no visible jump because cloned elements follow
-    }
-
-    requestAnimationFrame(animate);
-  }
-
-  animate();
-});
-*/
-
 
 
 // Function to show custom toast
