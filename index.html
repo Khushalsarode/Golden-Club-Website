@@ -185,15 +185,22 @@
 
     /* --- HERO SECTION --- */
 .hero {
-  position: relative;
+  position: relative;       /* not 'center' */
   min-height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: center;      /* vertical centering */
+  justify-content: center;  /* horizontal centering */
   color: white;
   text-align: center;
   overflow: hidden;
 }
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  margin-left: 145px; 
+
+}
+
 .hero::before,
 .hero::after,
 .hero .bg-slide {
@@ -908,6 +915,7 @@ footer {
   color: var(--text);
   margin: 0;
   transition: color 0.3s ease;
+  font-family: 'Metropolis', 'sans-serif';
 }
 
 .service-title:hover {
@@ -974,8 +982,13 @@ footer {
   gap: 28px;
   flex-wrap: nowrap;
   will-change: transform;
-  animation: scroll-left 40s linear infinite; /* <-- continuous ticker effect */
+  animation: scroll-left 10s linear infinite; /* faster speed */
 }
+
+.testimonials-track:hover {
+  animation-play-state: paused; /* stop on hover */
+}
+
 
 @keyframes scroll-left {
   from {
