@@ -1,190 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GOLDEN CUBE — Interior Studio</title>
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap"
+    as="style">
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link href="golden_cube_actual.png" rel="icon" type="image/png" />
+
+  <!-- SEO Meta -->
+  <meta name="description"
+    content="Golden Cube Interior Studio in Pune (Pimpri Gurav) — Modern, elegant, and innovative interior design solutions tailored for your lifestyle and workspace.">
+  <meta name="keywords"
+    content="interior design Pune, interior designers Pimpri Gurav, modern interiors Pune, home design Pune, workspace design Pune, architecture Pune, Golden Cube Studio">
+  <meta name="author" content="Golden Cube Interior Studio, Pune">
+
+  <!-- Open Graph (Social Preview) -->
+  <meta property="og:title" content="Golden Cube — Interior Studio Pune">
+  <meta property="og:description" content="Modern and innovative interior design solutions tailored for you.">
+  <meta property="og:image" content="https://goldencubestudio.in/logo/golden_cube_actual.png">
+  <meta property="og:url" content="https://goldencubestudio.in">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://goldencubestudio.in/logo/golden_cube_actual.png" type="image/png">
+  <link rel="apple-touch-icon" href="https://goldencubestudio.in/logo/golden_cube_actual.png">
+
+  <!-- Security -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;">
+
+
+
+  <link href="./logo/golden_cube_actual.png" rel="icon" type="image/png" />
   <style>
-:root {
-  --gold: #ffb52e;
-  --bg-dark: #111;
-  --text-light: #ffffff;
-  --text-muted: rgba(255,255,255,0.75);
-}
+    :root {
+      --gold: #ffb52e;
+      --bg-dark: #111;
+      --text-light: #ffffff;
+      --text-muted: rgba(255, 255, 255, 0.75);
+    }
 
-@font-face {
-  font-family: 'Metropolis';
-  src: url('./fonts/Metropolis-Regular.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Luxia';
-  src: url('./fonts/Luxia-Regular.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-}
+    @font-face {
+      font-family: 'Metropolis';
+      src: url('./fonts/Metropolis-Regular.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
 
-
-body {
-  margin: 0;
-  font-family: 'Metropolis', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  text-align: center;
-  overflow: hidden;
-  position: relative;
-  color: var(--text-light);
-}
-
-/* Background Crossfade */
-.bg-slideshow {
-  position: fixed;
-  inset: 0;             /* top:0; right:0; bottom:0; left:0; */
-  width: 100%;
-  height: 100%;
-  z-index: -2;
-  overflow: hidden;
-}
-
-.bg-slideshow div {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;        /* make the image cover entire viewport */
-  background-position: center;   /* center the image */
-  background-repeat: no-repeat;  /* prevent tiling */
-  opacity: 0;
-  animation: crossfade 40s infinite;
-  filter: brightness(0.6) contrast(1.1);
-}
-
-/* optional: smoother scaling on resize */
-.bg-slideshow div {
-  will-change: transform, opacity;
-}
-
-.bg-slideshow div:nth-child(1) { background-image: url('https://plus.unsplash.com/premium_photo-1723901831042-d99b9630a546?w=600&auto=format&fit=crop'); animation-delay: 0s; }
-.bg-slideshow div:nth-child(2) { background-image: url('https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=600&auto=format&fit=crop'); animation-delay: 8s; }
-.bg-slideshow div:nth-child(3) { background-image: url('https://images.unsplash.com/photo-1756199638047-6d6930280e37?w=600&auto=format&fit=crop'); animation-delay: 16s; }
-.bg-slideshow div:nth-child(4) { background-image: url('https://images.unsplash.com/photo-1756199617913-620d64edb8a4?w=600&auto=format&fit=crop'); animation-delay: 24s; }
-.bg-slideshow div:nth-child(5) { background-image: url('https://plus.unsplash.com/premium_photo-1723901831054-b0915918892c?w=600&auto=format&fit=crop'); animation-delay: 32s; }
-
-@keyframes crossfade {
-  0%   { opacity: 0; }
-  5%   { opacity: 1; }
-  25%  { opacity: 1; }
-  30%  { opacity: 0; }
-  100% { opacity: 0; }
-}
-
-/* Overlay */
-body::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-  z-index: -1;
-}
-
-/* Thankyou Container */
-.thankyou-container {
-  max-width: 620px;
-  background: rgba(255, 255, 255, 0.06);
-  background: transparent;
-  padding: 50px 35px;
-  border-radius: 20px;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.6);
-  animation: fadeIn 1s ease forwards;
-}
-
-/* Logo */
-.thankyou-logo {
-  width: 120px;
-  margin-bottom: 20px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.6));
-  transition: transform 0.4s ease;
-  border-radius: 12px;
-}
-.thankyou-logo:hover {
-  transform: scale(1.08);
-}
-
-/* Heading & Text */
-h1 {
-  font-family: 'Luxia', serif;
-  font-size: clamp(32px,6vw,58px);
-  color: var(--gold);
-  margin-bottom: 18px;
-  letter-spacing: 1px;
-  animation: fadeInUp 1s ease forwards;
-}
-p {
-  color: var(--text-muted);
-  font-size: 1.15rem;
-  margin-bottom: 28px;
-  line-height: 1.6;
-  animation: fadeInUp 1s ease forwards;
-  animation-delay: 0.2s;
-}
-
-/* Button */
-a.btn {
-  display: inline-block;
-  text-decoration: none;
-  padding: 14px 34px;
-  background: var(--gold);
-  color: var(--bg-dark);
-  font-weight: 700;
-  border-radius: 10px;
-  transition: background 0.3s ease, transform 0.3s ease;
-  animation: fadeInUp 1s ease forwards;
-  animation-delay: 0.4s;
-}
-a.btn:hover {
-  background: #ffb52e;
-transform: scale(2.08);
-}
+    @font-face {
+      font-family: 'Luxia';
+      src: url('./fonts/Luxia-Regular.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
 
 
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+    body {
+      margin: 0;
+      font-family: 'Metropolis', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+      color: var(--text-light);
+    }
 
-/* Responsive */
-@media(max-width:1024px) {
-  .thankyou-container { padding: 40px 28px; }
-  h1 { font-size: clamp(30px,5vw,52px); }
-  p { font-size: 1.1rem; }
-}
-@media(max-width:640px) {
-  .thankyou-container { padding: 35px 20px; }
-  h1 { font-size: clamp(28px,8vw,46px); }
-  p { font-size: 1rem; }
-}
-@media(max-width:480px) {
-  .thankyou-container { padding: 28px 15px; }
-  h1 { font-size: clamp(26px,10vw,40px); }
-  p { font-size: 0.95rem; }
-  a.btn { padding: 12px 28px; font-size: 0.95rem; }
-}
+    /* Background Crossfade */
+    .bg-slideshow {
+      position: fixed;
+      inset: 0;
+      /* top:0; right:0; bottom:0; left:0; */
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      overflow: hidden;
+    }
+
+    .bg-slideshow div {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      /* make the image cover entire viewport */
+      background-position: center;
+      /* center the image */
+      background-repeat: no-repeat;
+      /* prevent tiling */
+      opacity: 0;
+      animation: crossfade 40s infinite;
+      filter: brightness(0.6) contrast(1.1);
+    }
+
+    /* optional: smoother scaling on resize */
+    .bg-slideshow div {
+      will-change: transform, opacity;
+    }
+
+    .bg-slideshow div:nth-child(1) {
+      background-image: url('https://plus.unsplash.com/premium_photo-1723901831042-d99b9630a546?w=600&auto=format&fit=crop');
+      animation-delay: 0s;
+    }
+
+    .bg-slideshow div:nth-child(2) {
+      background-image: url('https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=600&auto=format&fit=crop');
+      animation-delay: 8s;
+    }
+
+    .bg-slideshow div:nth-child(3) {
+      background-image: url('https://images.unsplash.com/photo-1756199638047-6d6930280e37?w=600&auto=format&fit=crop');
+      animation-delay: 16s;
+    }
+
+    .bg-slideshow div:nth-child(4) {
+      background-image: url('https://images.unsplash.com/photo-1756199617913-620d64edb8a4?w=600&auto=format&fit=crop');
+      animation-delay: 24s;
+    }
+
+    .bg-slideshow div:nth-child(5) {
+      background-image: url('https://plus.unsplash.com/premium_photo-1723901831054-b0915918892c?w=600&auto=format&fit=crop');
+      animation-delay: 32s;
+    }
+
+    @keyframes crossfade {
+      0% {
+        opacity: 0;
+      }
+
+      5% {
+        opacity: 1;
+      }
+
+      25% {
+        opacity: 1;
+      }
+
+      30% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    /* Overlay */
+    body::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: -1;
+    }
+
+    /* Thankyou Container */
+    .thankyou-container {
+      max-width: 620px;
+      background: rgba(255, 255, 255, 0.06);
+      background: transparent;
+      padding: 50px 35px;
+      border-radius: 20px;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+      animation: fadeIn 1s ease forwards;
+    }
+
+    /* Logo */
+    .thankyou-logo {
+      width: 120px;
+      margin-bottom: 20px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6));
+      transition: transform 0.4s ease;
+      border-radius: 12px;
+    }
+
+    .thankyou-logo:hover {
+      transform: scale(1.08);
+    }
+
+    /* Heading & Text */
+    h1 {
+      font-family: 'Luxia', serif;
+      font-size: clamp(32px, 6vw, 58px);
+      color: var(--gold);
+      margin-bottom: 18px;
+      letter-spacing: 1px;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    p {
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      margin-bottom: 28px;
+      line-height: 1.6;
+      animation: fadeInUp 1s ease forwards;
+      animation-delay: 0.2s;
+    }
+
+    /* Button */
+    a.btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 14px 34px;
+      background: var(--gold);
+      color: var(--bg-dark);
+      font-weight: 700;
+      border-radius: 10px;
+      transition: background 0.3s ease, transform 0.3s ease;
+      animation: fadeInUp 1s ease forwards;
+      animation-delay: 0.4s;
+    }
+
+    a.btn:hover {
+      background: #ffb52e;
+      transform: scale(2.08);
+    }
+
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media(max-width:1024px) {
+      .thankyou-container {
+        padding: 40px 28px;
+      }
+
+      h1 {
+        font-size: clamp(30px, 5vw, 52px);
+      }
+
+      p {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media(max-width:640px) {
+      .thankyou-container {
+        padding: 35px 20px;
+      }
+
+      h1 {
+        font-size: clamp(28px, 8vw, 46px);
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+
+    @media(max-width:480px) {
+      .thankyou-container {
+        padding: 28px 15px;
+      }
+
+      h1 {
+        font-size: clamp(26px, 10vw, 40px);
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
+
+      a.btn {
+        padding: 12px 28px;
+        font-size: 0.95rem;
+      }
+    }
   </style>
 </head>
+
 <body>
   <!-- Background slideshow -->
   <div class="bg-slideshow">
@@ -198,9 +315,10 @@ transform: scale(2.08);
   <div class="thankyou-container">
     <img src="./logo/golden_cube_actual.png" alt="Golden Cube Logo" class="thankyou-logo" />
     <h1>Thank You!</h1>
-    <p>Your message has been received. Our team at Golden Cube will reach out to you shortly.  
-    We appreciate your interest in our luxury interior design services.</p>
+    <p>Your message has been received. Our team at Golden Cube will reach out to you shortly.
+      We appreciate your interest in our luxury interior design services.</p>
     <a href="index.html" class="btn">← Back to Home</a>
   </div>
 </body>
+
 </html>
