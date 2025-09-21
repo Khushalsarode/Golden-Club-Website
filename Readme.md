@@ -110,3 +110,5 @@ golden-cube-website/
 
 
 ## Screenshot
+![WebPage Designed](./SCREENSHOT/index.html.png)
+![Contact Page](./SCREENSHOT/thankyou.html.png)
