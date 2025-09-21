@@ -30,15 +30,16 @@
   <link rel="icon" href="https://goldencubestudio.in/logo/golden_cube_actual.png" type="image/png">
   <link rel="apple-touch-icon" href="https://goldencubestudio.in/logo/golden_cube_actual.png">
 
-  <!-- Security -->
+  <!-- Security
   <meta http-equiv="Content-Security-Policy"
     content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;">
-
+   -->
 
 
   <link href="./logo/golden_cube_actual.png" rel="icon" type="image/png" />
 
   <style>
+    /* Custom Font Adding */
     /* FONTS FOR WEBSITE */
     @font-face {
       font-family: 'Metropolis';
@@ -65,12 +66,10 @@
       --accent: #ffffff;
       --radius: 18px;
       --shadow: 0 10px 30px rgba(0, 0, 0, .45);
-      /* Font sizes (adjust once here for global scaling) */
       --fs-h1: clamp(40px, 7vw, 86px);
       --fs-h2: clamp(28px, 4vw, 48px);
       --fs-h3: 1.6rem;
       --fs-body: 1rem;
-      /* ~16px */
       --fs-sub: 1.1rem;
       --fs-small: 0.9rem;
     }
@@ -146,7 +145,6 @@
       transition: color 0.3s ease;
     }
 
-
     .phone-text {
       font-size: 14px;
       font-weight: 500;
@@ -188,7 +186,7 @@
       height: 20px
     }
 
-    /* --- BUTTONS --- */
+    /* --- BUTTONS Style --- */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -207,14 +205,10 @@
       font-weight: 600;
       letter-spacing: 0.04em;
       text-decoration: none;
-
-
-      /* Animation on load */
       opacity: 0;
       transform: translateY(10px);
       animation: btnFadeIn 0.8s forwards;
       animation-delay: 0.6s;
-      /* adjust if needed to sequence after heading and lede */
     }
 
     .btn:hover {
@@ -230,7 +224,7 @@
       }
     }
 
-    /* --- RESPONSIVE BUTTONS --- */
+    /* --- RESPONSIVE BUTTONS Style --- */
     @media (max-width: 768px) {
       .btn {
         height: 40px;
@@ -259,7 +253,7 @@
     }
 
 
-    /* --- HERO SECTION --- */
+    /* --- HERO SECTION STYLE --- */
     .hero {
       position: relative;
       min-height: 100vh;
@@ -307,7 +301,7 @@
       gap: 12px;
     }
 
-    /* --- HERO BACKGROUND SLIDES --- */
+    /* --- HERO BACKGROUND SLIDES STYLE Slideshow on HOME PAGE --- */
     .hero::before,
     .hero::after,
     .hero .bg-slide {
@@ -368,7 +362,7 @@
       background: rgba(0, 0, 0, 0.35);
     }
 
-    /* --- ANIMATIONS --- */
+    /* --- ANIMATIONS FOR HERO SECTION HOME PAGE --- */
     .hero-copy h1,
     .hero-copy .lede,
     .hero-copy .btn {
@@ -396,7 +390,7 @@
       }
     }
 
-    /* --- LOGO --- */
+    /* --- LOGO MAIN HOME PAGE--- */
     .hero-logo {
       width: clamp(160px, 30vw, 480px);
       height: auto;
@@ -422,7 +416,7 @@
       }
     }
 
-    /* --- RESPONSIVE --- */
+    /* --- RESPONSIVE HERO SECTION--- */
     @media (max-width: 640px) {
       .hero-copy {
         padding: 80px 10px 40px;
@@ -447,18 +441,13 @@
     .lede {
       max-width: 560px;
       font-size: var(--fs-sub);
-      /* larger than normal text */
       font-weight: 300;
-      /* sleek thin weight */
       line-height: 1.6;
-      /* airy spacing */
       color: rgba(255, 255, 255, 0.85);
-      /* elegant muted white */
       letter-spacing: 0.5px;
       margin-top: 12px;
       margin-bottom: 20px;
       text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-      /* subtle glow for readability */
       transition: color .3s ease;
       color: var(--muted);
       margin: 0 auto 26px;
@@ -469,8 +458,6 @@
       color: #FFB52E;
       /* orange-gold text */
     }
-
-
 
     h1 {
       font-size: var(--fs-h1);
@@ -520,21 +507,21 @@
 
 
     /* --- HERO TITLE STYLING --- 
-.hero-title{
-    margin: 0 0 18px;
-  font-size: clamp(40px, 7vw, 86px);
-  line-height: 1.05;
-  letter-spacing: 0.03em;
-  font-weight: 800;
-  font-family: 'Luxia', serif;
-  text-transform: uppercase;
-  color: #f4d03f;
-  text-shadow: 
-    0 0 10px rgba(244, 208, 63, 0.6),
-    0 0 20px rgba(244, 208, 63, 0.4);
-  transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-*/
+      .hero-title{
+          margin: 0 0 18px;
+        font-size: clamp(40px, 7vw, 86px);
+        line-height: 1.05;
+        letter-spacing: 0.03em;
+        font-weight: 800;
+        font-family: 'Luxia', serif;
+        text-transform: uppercase;
+        color: #f4d03f;
+        text-shadow: 
+          0 0 10px rgba(244, 208, 63, 0.6),
+          0 0 20px rgba(244, 208, 63, 0.4);
+        transition: color 0.3s ease, text-shadow 0.3s ease;
+      }
+      */
 
     /* CREATE COMFORT SECTION doodle style*/
     /* Full doodle background (entire PNG visible, shifted right) */
@@ -678,7 +665,6 @@
       margin-bottom: 10px;
     }
 
-
     .sub {
       color: var(--muted);
       margin: 6px 0 22px;
@@ -695,7 +681,7 @@
 
 
 
-    /* PROJECT | GALLERY SECTION */
+    /* PROJECT | GALLERY SECTION STYLE | Project done */
     /* GALLERY GRID */
     .gallery {
       display: grid;
@@ -750,6 +736,7 @@
     }
 
     /* LIGHTBOX */
+    /* POPUP for gallery Items */
     .lightbox {
       display: none;
       position: fixed;
@@ -858,7 +845,7 @@
       }
     }
 
-    /* --- CONTACT SECTION --- */
+    /* --- CONTACT SECTION  STYLE--- */
     .contact {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
@@ -901,7 +888,7 @@
       resize: vertical;
     }
 
-    /* Footer */
+    /* Footer SEection Style */
     footer {
       padding: 34px 0 46px;
       color: #9a9a9a;
@@ -953,7 +940,6 @@
     .mobile-nav {
       position: fixed;
       top: 50px;
-      /* distance from top, adjust as needed */
       left: 20%;
       /* horizontally center */
       transform: translate(-50%, -20px);
@@ -993,7 +979,6 @@
     }
 
     /* --- Responsive Adjustments --- */
-
     /* Tablets and small desktops */
     @media (max-width: 1024px) {
       .mobile-nav {
@@ -1693,7 +1678,7 @@
 </head>
 
 <body>
-
+  <!-- HEADER SECTION -->
   <header>
     <div class="nav container" style="display:flex; justify-content:space-between; align-items:center;">
 
@@ -1727,28 +1712,6 @@
           </svg>
         </a>
 
-        <!-- Phone 1
-<a class="social-icon" href="tel:+919172900753" aria-label="Call Golden Cube Studio - Number 1">
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-    <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 
-    1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 
-    1 0 1.24.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-  </svg>
-  <span class="phone-text">+91-91729 00753</span>
-</a>
- -->
-
-        <!-- Phone 2 
-<a class="social-icon" href="tel:+918237586634" aria-label="Call Golden Cube Studio - Number 2">
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-    <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 
-    1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 
-    1 0 1.24.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-  </svg>
-  <span class="phone-text">+91-82375 86634</span>
-</a>
--->
-
         <!-- Contact Us (Scroll to section) -->
         <a class="social-icon" href="#contact-details" aria-label="Go to Contact Us section">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
@@ -1757,13 +1720,8 @@
           </svg>
           <span class="contact-text">Contact Us</span>
         </a>
-
-
-
-
-
       </div>
-
+      <!-- MENU ITMS -->
     </div>
     <div class="mobile-nav container" id="mnav">
       <a href="#about">About</a>
@@ -1775,23 +1733,17 @@
 
     </div>
   </header>
-
+  <!-- BG SLIDE SHOW HOME PAGE -->
   <section class="hero">
     <div class="bg-slide"></div>
     <div class="bg-slide"></div>
     <div class="bg-slide"></div>
     <div class="bg-slide"></div>
-
+    <!-- Home page ITEM -->
     <div class="hero-inner container">
       <div class="hero-copy">
         <!-- Logo -->
         <img src="./logo/png transparent dark gold.png" alt="Golden Cube Logo" class="hero-logo" />
-
-        <!-- Full Golden Heading 
-      <h1 class="hero-title">GOLDEN CUBE</h1>
-
-      <p class="lede">LUXURY WITHOUT LIMIT</p>  
-      -->
         <div class="hero-buttons">
           <a href="#portfolio" class="btn">Portfolio</a>
           <a href="#contact" class="btn btn-outline">Get In Touch</a>
@@ -1800,10 +1752,11 @@
     </div>
   </section>
 
+  <!-- ABOUT SECTION -->
   <section id="about" class="section">
     <div class="container about-container">
+      <!-- DOODLE Container for asthetic design-->
       <!-- Hero 
-
     <div class="hero-inner doodle-bg">
       <div class="hero-copy animate">
         <h1>GOLDEN CUBE</h1>
@@ -1851,7 +1804,7 @@
 
 
 
-
+  <!-- SERVICES OFFERED SECTION CARDS -->
   <section id="services" class="section">
     <div class="container">
       <div class="kicker">Our Services</div>
@@ -1929,7 +1882,7 @@
   </section>
 
 
-
+  <!-- PROJECT DONE GALLERY WITH MEDIA ITEMS -->
   <section id="projects" class="section" style="padding-top:14px">
     <div class="container">
       <div class="kicker">Design We have Worked on!</div>
@@ -1940,6 +1893,7 @@
   </section>
 
   <!-- Lightbox -->
+  <!-- MEDIA ITEM POP UP CONTROLS AND DIVS-->
   <div id="lightbox" class="lightbox">
     <span class="close">&times;</span>
     <div id="lightbox-content"></div>
@@ -1947,7 +1901,7 @@
     <div class="nav next">&#10095;</div>
   </div>
 
-
+  <!-- CUSTOMER FEEDBACK & CARDS SECTION-->
   <section id="testimonials" class="section" style="background:var(--bg);">
     <div class="container">
       <div class="kicker">What Our Clients Say</div>
@@ -1982,7 +1936,6 @@
               expectations in every way.”</p>
             <p class="testimonial-author">— Vijay Chauhari & Gitanjali Chauhari, Advocate Office, Mumbai</p>
           </div>
-
         </div>
       </div>
     </div>
@@ -1990,7 +1943,7 @@
   </section>
 
 
-
+  <!-- Contact FORM section using mail send directly to studio email with QUERY using FORMSUBMIT-->
   <section id="contact" class="section">
     <div class="container">
 
@@ -2038,6 +1991,7 @@
   </section>
 
   <!-- Contact Details Section -->
+  <!-- OWNER CONTACT DETAILS AND MAP IFRAME-->
   <section id="contact-details" class="contact-details">
     <div class="container">
       <h2 class="kicker">CONTACT US!</h2>
@@ -2069,13 +2023,13 @@
   </section>
 
 
-
+  <!-- Overlay button on bottom RIGHT CORNER-->
   <!-- Back to Top Button -->
   <button id="backToTop" aria-label="Back to Top">
     ↑
   </button>
 
-
+  <!-- Footer section-->
   <footer class="footer">
     <div class="container">
       <p class="brand">© 2025 <span>Golden Cube Studio</span> | Pune, India | All Rights Reserved</p>
@@ -2088,6 +2042,7 @@
   </footer>
 
   <script>
+    //SCRIPT FOR MENU OPENING AND OVERLAY
     const burger = document.getElementById('hamburger');
     const mnav = document.getElementById('mnav');
     burger?.addEventListener('click', () => {
@@ -2098,10 +2053,9 @@
     );
 
 
-
+    //SCRIPT FOR BACK TO TOP BUTTON
     // Get the button
     const backToTopBtn = document.getElementById("backToTop");
-
     // Show/hide button on scroll
     window.addEventListener("scroll", () => {
       if (window.scrollY > 300) {
@@ -2110,13 +2064,13 @@
         backToTopBtn.classList.remove("show");
       }
     });
-
     // Smooth scroll to top
     backToTopBtn.addEventListener("click", () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
 
+    //SCRIPT FOR DYNAMIC GALLERY OF MEDIA PROJECT DONE
     /* Dynamic + Random Gallery Navigation Script */
     document.addEventListener("DOMContentLoaded", () => {
       const galleryContainer = document.getElementById("portfolio");
@@ -2154,17 +2108,13 @@
         { src: "./golden_cube_gallery/v3.mp4", type: "video" },
       ];
 
-
-
       function shuffleArray(arr) {
         return arr.map(v => ({ value: v, sort: Math.random() }))
           .sort((a, b) => a.sort - b.sort)
           .map(({ value }) => value);
       }
-
       // SHOW 8 RANDOM TILES ONLY
       const visibleTiles = shuffleArray([...galleryItems]).slice(0, 8);
-
       // Render tiles
       galleryContainer.innerHTML = "";
       visibleTiles.forEach((item, index) => {
@@ -2236,21 +2186,7 @@
     });
 
 
-
-    /*SERVICE SECTION HOVER SCRIPT */
-    const cards = document.querySelectorAll('.service-card');
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    }, { threshold: 0.2 });
-
-    cards.forEach(card => observer.observe(card));
-
-
+    //SCRipt FOR SHOW TOAST AND REDIRECT AFTER INQUIRY FILLED & SEND
     // Function to show custom toast
     function showToast(message) {
       // Create toast element
