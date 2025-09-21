@@ -183,9 +183,9 @@
 }
 
 
-    /* --- HERO SECTION --- */
+/* --- HERO SECTION --- */
 .hero {
-  position: relative;       /* not 'center' */
+  position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;      /* vertical centering */
@@ -194,13 +194,40 @@
   text-align: center;
   overflow: hidden;
 }
+
 .hero-inner {
   position: relative;
   z-index: 1;
-  margin-left: 145px; 
-
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;           /* always centered */
+  padding: 0 16px;          /* small side padding for mobiles */
 }
 
+.hero-copy {
+  padding: 120px 0 80px;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1 {
+  margin: 0 0 18px;
+  font-size: clamp(40px, 7vw, 86px);
+  line-height: 1.02;
+  letter-spacing: .02em;
+  font-weight: 800;
+}
+
+/* Buttons */
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* --- HERO BACKGROUND SLIDES --- */
 .hero::before,
 .hero::after,
 .hero .bg-slide {
@@ -210,19 +237,16 @@
   background-size: cover;
   background-position: center;
   z-index: -1;
-  /* Make the bg faded for readability */
   filter: grayscale(0.05) brightness(0.4) contrast(1.05);
   opacity: 0;
   animation: fade 20s infinite;
 }
 
-/* Smooth background transitions */
 .hero .bg-slide:nth-child(1) { background-image: url('https://images.unsplash.com/photo-1756199638047-6d6930280e37?w=600'); animation-delay: 0s; }
 .hero .bg-slide:nth-child(2) { background-image: url('https://images.unsplash.com/photo-1751945965597-71171ec7a458?w=600'); animation-delay: 5s; }
 .hero .bg-slide:nth-child(3) { background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2400'); animation-delay: 10s; }
 .hero .bg-slide:nth-child(4) { background-image: url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=2400'); animation-delay: 15s; }
 
-/* Fade animation */
 @keyframes fade {
   0%   { opacity: 0; }
   10%  { opacity: 1; }
@@ -231,27 +255,77 @@
   100% { opacity: 0; }
 }
 
-/* Optional: subtle overlay for extra readability */
 .hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.35); /* dark overlay to help text pop */
-  z-index: -1;
+  background: rgba(0,0,0,0.35);
 }
 
-    .hero-inner{position:relative; z-index:1; width:100%}
-    .hero-copy{padding:120px 0 80px; max-width:900px;text-align: center;}
-    h1{margin:0 0 18px; font-size:clamp(40px,7vw,86px); line-height:1.02; letter-spacing:.02em; font-weight:800;}
-
-    .kicker {
-    font-family: 'Luxia', serif; /* Use Luxia for headings */
-    }
-    .hero-buttons {
-  display: flex;
-  justify-content: center; /* Centers buttons horizontally */
-  gap: 12px; /* Spacing between buttons */
+/* --- ANIMATIONS --- */
+.hero-copy h1,
+.hero-copy .lede,
+.hero-copy .btn {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
 }
+
+.hero-copy h1 { animation-delay: 0.2s; }
+.hero-copy .lede { animation-delay: 0.4s; }
+.hero-copy .btn { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- LOGO --- */
+.hero-logo {
+  width: clamp(160px, 30vw, 480px);
+  height: auto;
+  margin: 0 auto 28px auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 20px;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: logoFadeIn 1.3s ease forwards;
+}
+
+.hero-logo:hover {
+  transform: scale(1.12) rotate(1.5deg);
+  filter: drop-shadow(0 0 20px rgba(255, 181, 46, 0.8))
+          drop-shadow(0 0 36px rgba(232, 156, 12, 0.6))
+          drop-shadow(0 12px 24px rgba(0,0,0,0.7));
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+@keyframes logoFadeIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 640px) {
+  .hero-copy {
+    padding: 80px 10px 40px;
+  }
+  h1 {
+    font-size: clamp(28px, 9vw, 60px);
+  }
+  .lede {
+    font-size: 1.1rem;
+    max-width: 90%;
+    margin: 12px auto 20px;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
 .lede {
   max-width: 560px;
   font-size: var(--fs-sub);      /* larger than normal text */
@@ -313,61 +387,6 @@ p, li, a, span {
 }
 
 
-/* --- HERO ANIMATION --- */
-.hero-inner {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  text-align: center;
-}
-
-.hero-copy h1,
-.hero-copy .lede,
-.hero-copy .btn {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 1s ease forwards;
-}
-
-.hero-copy h1 { animation-delay: 0.2s; }
-.hero-copy .lede { animation-delay: 0.4s; }
-.hero-copy .btn { animation-delay: 0.6s; }
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* --- RESPONSIVE ADJUSTMENTS --- */
-@media (max-width: 480px) {
-  .hero-copy {
-    padding: 80px 10px 40px;
-  }
-  .hero-title {
-    font-size: clamp(28px, 8vw, 50px);
-  }
-  .hero-buttons {
-    flex-direction: column;
-    gap: 10px;
-  }
-}
-
-@media (max-width: 640px) {
-  h1 {
-    font-size: clamp(32px, 10vw, 60px);
-  }
-  .lede {
-    font-size: 1.1rem;
-    max-width: 90%;
-    margin: 12px auto 20px;
-  }
-  .hero-copy .btn {
-    padding: 10px 20px;
-    font-size: 0.95rem;
-  }
-}
 
 /* --- HERO TITLE STYLING --- 
 .hero-title{
@@ -385,52 +404,6 @@ p, li, a, span {
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 */
-
-/* --- HERO LOGO --- */
-.hero-logo {
-  width: clamp(240px, 35vw, 480px);  /* much larger: min 240px, max 480px */
-  height: auto;
-  margin: 0 auto 28px auto;
-  object-fit: contain;
-  display: block;
-
-    border-radius: 20px;
-
-  /* Animation on entry */
-  opacity: 0;
-  transform: scale(0.8);
-  animation: logoFadeIn 1.3s ease forwards;
-}
-
-.hero-logo:hover {
-  transform: scale(1.12) rotate(1.5deg);
-  filter: drop-shadow(0 0 20px rgba(255, 181, 46, 0.8))   /* bright orange-gold */
-          drop-shadow(0 0 36px rgba(232, 156, 12, 0.6))   /* deep orange-gold */
-          drop-shadow(0 12px 24px rgba(0,0,0,0.7));       /* subtle dark depth */
-  transition: transform 0.5s ease, filter 0.5s ease;
-}
-
-/* Keyframes for entry animation */
-@keyframes logoFadeIn {
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Responsive scaling */
-@media (max-width: 768px) {
-  .hero-logo {
-    width: 220px;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-logo {
-    width: 160px;
-    margin-bottom: 20px;
-  }
-}
 
 /* CREATE COMFORT SECTION doodle style*/
 /* Full doodle background (entire PNG visible, shifted right) */
@@ -983,11 +956,17 @@ footer {
   flex-wrap: nowrap;
   will-change: transform;
   animation: scroll-left 10s linear infinite; /* faster speed */
+  width: max-content;
 }
 
 .testimonials-track:hover {
   animation-play-state: paused; /* stop on hover */
 }
+.testimonials-track::after {
+  content: attr(data-clone); /* marker text, will be replaced */
+  display: flex;
+}
+
 
 
 @keyframes scroll-left {
@@ -1644,7 +1623,7 @@ footer {
 
     <!-- Carousel Wrapper -->
     <div class="testimonials-wrapper">
-      <div class="testimonials-track">
+      <div class="testimonials-track" data-clone="">
         <div class="testimonial">
           <p class="testimonial-text">“Golden Cube turned our apartment into a sanctuary. The team perfectly balanced elegance with functionality. We couldn’t be happier with the result.”</p>
           <p class="testimonial-author">— Sumersing Patil, Apartment Owner, Jalgaon City</p>
